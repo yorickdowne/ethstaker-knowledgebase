@@ -1,5 +1,21 @@
 {% extends "base.html" %}
 
+{% block announce %}
+  <a href="https://ethstaker.org/events/staking-gathering-2025" target="_blank">Join us at Staking Gathering November 18, 2025 - Get Tickets Now!</a>
+  <script>
+    const announcementBar = document.querySelector("aside.md-banner");
+    announcementBar.addEventListener('click', function() {
+      window.open('https://ethstaker.org/events/staking-gathering-2025','_blank');
+    });
+    announcementBar.addEventListener('mouseover', () => {
+        announcementBar.style.cursor = 'pointer';
+    });
+    announcementBar.addEventListener('mouseout', () => {
+        announcementBar.style.cursor = 'default';
+    });
+  </script>
+{% endblock %}
+
 {% block scripts %}
   {{ super() }}
   <script>

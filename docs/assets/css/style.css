@@ -23,6 +23,18 @@
 .md-typeset .grid>.card.local::after {
   content: " →";
 }
+.md-banner {
+  background-color: #05d39b;
+  color: #000;
+  font-weight: bold;
+  text-align: center;
+}
+.md-banner a {
+  color: #000;
+}
+.md-banner a:hover {
+  color: #333;
+}
 
 
   
