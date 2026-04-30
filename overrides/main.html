@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 
 {% block announce %}
-  <!-- <a href="https://ethstaker.org/events/staking-gathering-2025" target="_blank">Join us at Staking Gathering November 18, 2025 - Get Tickets Now!</a> -->
+  <a href="https://ethstaker.org/forms/staking-landscape-survey-2026" target="_blank">Take the 2026 Staking Landscape Survey!</a>
   <script>
-    const expirationDate = "2025-12-05T00:00:00Z"; // UTC time
+    const expirationDate = "2026-05-23T17:00:00Z"; // UTC time
     const expirationDateObj = new Date(expirationDate);
     const expirationEpoch = Math.floor(expirationDateObj.getTime() / 1000)
     const currentEpoch = Math.floor(Date.now() / 1000);
@@ -14,7 +14,7 @@
 
 
     announcementBar.addEventListener('click', function() {
-      window.open('https://ethstaker.org/events/staking-gathering-2025','_blank');
+      window.open('https://ethstaker.org/forms/staking-landscape-survey-2026','_blank');
     });
     announcementBar.addEventListener('mouseover', () => {
         announcementBar.style.cursor = 'pointer';

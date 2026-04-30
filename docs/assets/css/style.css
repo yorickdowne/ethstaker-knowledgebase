@@ -27,7 +27,8 @@ aside.md-banner {
   display: none;
 }
 .md-banner {
-  background-color: #05d39b;
+  /*background-color: #E3FFFD;*/
+  background-color: #ffc107;
   color: #000;
   font-weight: bold;
   text-align: center;
@@ -37,6 +38,9 @@ aside.md-banner {
 }
 .md-banner a:hover {
   color: #333;
+}
+.md-banner__inner {
+  margin: 0.5rem auto;
 }
 
 
