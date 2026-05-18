@@ -8,6 +8,7 @@ Slashing is a scary word. But what exactly is it, how can it happen and how worr
 
     **Slashing cannot occur from being offline for maintenance**.
 
+For a helpful visualization of various types of downtime penalties and less-common slashing conditions, see the [Staking Penalties and Slashing visual](https://ethstaker.org/staking-penalties).
 
 ### What is Slashing?
 
