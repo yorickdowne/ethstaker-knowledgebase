@@ -8,6 +8,7 @@ You shouldn't worry about downtime, but understanding what happens when your val
 
     If a validator is offline and not executing its duties, it will be penalized at a rate slightly lower than the rewards for the same period of time.
 
+For a helpful visualization of minor downtime penalties, see the right-side portion of the [Staking Penalties and Slashing visual](https://ethstaker.org/staking-penalties)
 
 ## Example Scenario
 
