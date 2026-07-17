@@ -1,6 +1,6 @@
 # New Staking Features in Pectra
 
-[Pectra](https://eips.ethereum.org/EIPS/eip-7600), combining changes on the consensus layer ([Electra](https://github.com/ethereum/consensus-specs/tree/dev/specs/electra)) with changes on the execution layer (Prague), is the next hard fork planned to upgrade the Ethereum protocol. This document covers the new staking-related features and changes included in this upgrade.
+[Pectra](https://eips.ethereum.org/EIPS/eip-7600), combining changes on the consensus layer ([Electra](https://github.com/ethereum/consensus-specs/tree/master/specs/electra)) with changes on the execution layer (Prague), is the next hard fork planned to upgrade the Ethereum protocol. This document covers the new staking-related features and changes included in this upgrade.
 
 ## Fork Schedule
 
