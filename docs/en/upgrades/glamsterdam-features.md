@@ -12,17 +12,13 @@ Glamsterdam has not yet been announced for public testnets and mainnets as of mi
 
 The two major changes in Glamsterdam are [ePBS](https://forkcast.org/eips/7732/) and [BAL](https://forkcast.org/eips/7928/).
 
-ePBS, "Enshrined Proposer Builder Separation", does two main things. It changes the slot timing and decouples broadcast and verification of the execution payload from the consensus block. And it removes the need for PBS sidecars such as mev-boost or commit-boost-pbs
-as well as trusted relays, instead enabling direct connections to builders and also broadcasting builder bids via P2P, peer to peer, protocol. Relays are still expected to be in use, but will function just like a direct builder connection.
+ePBS, "Enshrined Proposer Builder Separation", does two main things. It changes the slot timing and decouples broadcast and verification of the execution payload from the consensus block. And it removes the need for PBS sidecars such as mev-boost or commit-boost-pbs as well as trusted relays, instead enabling direct connections to builders and also broadcasting builder bids via P2P, peer to peer, protocol. Relays are still expected to be in use, but will function just like a direct builder connection.
 
-BAL, Block Level Access list, allows clients to know what accounts and smart contracts were changed in the block and how. For stakers that means faster re-execution of the payload, as transactions that are independent of each other can now be processed in parallel,
-using all CPU cores. Pre-Glamsterdam, most clients use a single-core implementation of the EVM, Ethereum Virtual Machine. Some clients already used heuristics for parallel processing: BAL makes this far more efficient and predictable.
+BAL, Block Level Access list, allows clients to know what accounts and smart contracts were changed in the block and how. For stakers that means faster re-execution of the payload, as transactions that are independent of each other can now be processed in parallel, using all CPU cores. Pre-Glamsterdam, most clients use a single-core implementation of the EVM, Ethereum Virtual Machine. Some clients already used heuristics for parallel processing: BAL makes this far more efficient and predictable.
 
-BAL also enables a new syncing protocol for execution layer clients, [snap/2](https://eips.ethereum.org/EIPS/eip-8189). Pre-Glamsterdam, the final stage of snap sync is "state healing". Depending on the speed of the disk, this can take hours; on slow disks,
-state may move faster than healing can process, and it'll never complete. The new snap protocol can instead apply the state diffs in the BAL for final state catch-up, which is far faster. 
+BAL also enables a new syncing protocol for execution layer clients, [snap/2](https://eips.ethereum.org/EIPS/eip-8189). Pre-Glamsterdam, the final stage of snap sync is "state healing". Depending on the speed of the disk, this can take hours; on slow disks, state may move faster than healing can process, and it'll never complete. The new snap protocol can instead apply the state diffs in the BAL for final state catch-up, which is far faster. 
 
-Between them, these two changes allow the clients more time and resources to handle re-execution of the execution payload. As a result, together with gas repricings, the gas limit is expected to be raised to 300M with Glamsterdam, from 60M pre-Glamsterdam. It is a 5-fold
-increase, to match the roughly 5-fold increase in available processing time.
+Between them, these two changes allow the clients more time and resources to handle re-execution of the execution payload. As a result, together with gas repricings, the gas limit is expected to be raised to 300M with Glamsterdam, from 60M pre-Glamsterdam. It is a 5-fold increase, to match the roughly 5-fold increase in available processing time.
 
 ## ePBS configuration changes
 
@@ -52,16 +48,13 @@ Post-Glamsterdam, the timing changes to allow 9-10s for re-execution and validat
 
 An attesting validator receives a beacon block before t=3s and attests to that block, its execution payload hash, and the *previous* slot's execution payload validity.
 
-It then receives the current slot's payload by t=6s, and has until the next slot's t=3s to re-execute it, using all CPU cores. This gives it at least 9s time to handle re-execution,
-and potentially 10s or more, depending on how soon it sees the payload. This is roughly a 5x increase in time to handle re-execution, on top of the speedup afforded by parallel execution.
+It then receives the current slot's payload by t=6s, and has until the next slot's t=3s to re-execute it, using all CPU cores. This gives it at least 9s time to handle re-execution, and potentially 10s or more, depending on how soon it sees the payload. This is roughly a 5x increase in time to handle re-execution, on top of the speedup afforded by parallel execution.
 
 Individual validators attest once an epoch. An epoch is 32 slots, and lasts 6.4 minutes.
 
 At 9s, 512 randomly selected validators out of the entire validator set form the PTC, the Payload Timeliness Committee, and vote on whether they have seen the payload by 6s and all blobs for it by 9s.
 
-A proposing validator, chosen randomly to propose a block, can get payload bids at t=0s from any configured relays or builders, and from P2P. It will then typically compare those and its locally built payload,
-choose the one that pays the most, and publish a beacon block that contains the hash of the execution payload, but not the payload itself. The choice of whether to use a remotely built payload
-or a locally built payload is moderated by parameters the operator sets: Min-bid, minimum payment of a remote payload; max execution payment, maximum payment of a builder bid;
+A proposing validator, chosen randomly to propose a block, can get payload bids at t=0s from any configured relays or builders, and from P2P. It will then typically compare those and its locally built payload, choose the one that pays the most, and publish a beacon block that contains the hash of the execution payload, but not the payload itself. The choice of whether to use a remotely built payload or a locally built payload is moderated by parameters the operator sets: Min-bid, minimum payment of a remote payload; max execution payment, maximum payment of a builder bid;
 proposer boost, percentage that a remote payload has to pay above a local payload.
 
 If choosing a local payload, the payload and all blobs can be broadcast immediately by the node.
