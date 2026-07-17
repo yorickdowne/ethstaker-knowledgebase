@@ -66,4 +66,4 @@ This will likely increase bandwidth requirements for stakers until PeerDAS is in
 If you have questions or need additional support, connect with the EthStaker community on:
 
 * Discord: [dsc.gg/ethstaker](https://dsc.gg/ethstaker)
-* Reddit: [reddit.com/r/ethstaker](https://www.reddit.com/r/ethstaker/)
+* Reddit: [reddit.com/r/ethstaker](https://reddit.com/r/ethstaker/)
