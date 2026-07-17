@@ -51,6 +51,7 @@ exclude_docs: |
 plugins:
   - search
   - social
+  - glightbox
   - i18n:
       # https://ultrabug.github.io/mkdocs-static-i18n/fr/setup/setting-up-languages/
       docs_structure: folder
